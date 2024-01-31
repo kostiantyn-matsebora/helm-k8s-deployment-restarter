@@ -1,0 +1,20 @@
+{{- if .Values.scaleDownUp }}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "restarter.fullname" . }}-scaledownup-scripts
+  labels:
+    {{- include "restarter.labels" .  | nindent 4 }}
+data:
+{{- range .Values.scaleDownUp }}
+  {{ .name }}.sh: |-
+    #!/bin/sh
+{{- range .deployments }}
+    kubectl scale deploy {{ .name }} --replicas 0    
+{{- end }}
+    sleep {{ .sleepPeriodInSeconds | default "30" }}
+{{- range .deployments }}
+    kubectl scale deploy {{ .name }} --replicas {{ .replicas | default "1" }}   
+{{- end }}
+{{- end }}
+{{- end }}

@@ -1,0 +1,36 @@
+{{- $root := . }}
+{{- range .Values.scaleDownUp }}
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: {{ include "restarter.fullname" $root }}-scaledownup-{{ .name }}
+  labels:
+    {{- include "restarter.labels" $root | nindent 4 }}
+spec:
+  schedule: "{{ .schedule }}"
+  concurrencyPolicy: Forbid
+  jobTemplate:
+    spec:
+      activeDeadlineSeconds: 600
+      backoffLimit: 2
+      template:
+        spec:
+          containers:
+            - name: kubectl
+              image: bitnami/kubectl
+              command: ["/bin/sh"]
+              args: ["/scripts/{{ .name }}.sh"]
+              imagePullPolicy: Always
+              volumeMounts:
+                - name: scripts
+                  mountPath: /scripts
+          restartPolicy: Never
+          serviceAccountName: {{ include "restarter.serviceAccountName" $root }}
+          volumes:
+          - name: scripts
+            configMap:
+              name: {{ include "restarter.fullname" $root }}-scaledownup-scripts
+  successfulJobsHistoryLimit: 3
+  failedJobsHistoryLimit: 3
+---  
+{{- end }}

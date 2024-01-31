@@ -1,0 +1,16 @@
+{{- if .Values.restart }}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "restarter.fullname" . }}-restart-scripts
+  labels:
+    {{- include "restarter.labels" . | nindent 4 }}
+data:
+{{- range .Values.restart }}
+  {{.name}}.sh: |-
+    #!/bin/sh
+{{- range .deployments }}
+    kubectl rollout restart deployment {{ . }} 
+{{- end }}
+{{- end }}
+{{- end }}

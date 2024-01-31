@@ -1,0 +1,16 @@
+restart: []
+  # - name: deployments-to-restart
+  #   schedule: "7 */3 * * *"
+  #   deployments:
+  #   - nginx-ingress
+  #   - oauth2-proxy
+
+scaleDownUp: []
+  # - name: deployments-to-scaledownup
+  #   schedule: "7 */3 * * *"
+  #   sleepPeriodInSeconds: 30
+  #   deployments:
+  #   - name: nginx-ingress
+  #     replicas: 1
+  #   - name: oauth2-proxy
+  #     replicas: 2  
