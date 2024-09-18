@@ -1,12 +1,12 @@
 # k8s deployment restarter
 
-Helm charts for restarting kubernetes deployment resource by schedule.
+Helm chart for restarting kubernetes deployment resource by schedule.
 
 Supports two strategies:
 
 * `restart` - using `kubectl` command `kubectl rollout restart deployment/daemonset`, supports deployments and daemonsets.
-  
 * `scaleDownUp` - scales down to zero and up to particular number of replicas, could be useful when destroying pod also requires release of some resources (for instance mounted volumes), supports deployments only.
+
 
 ## Configuration
 
