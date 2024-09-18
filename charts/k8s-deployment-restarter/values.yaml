@@ -4,7 +4,8 @@ restart: []
   #   deployments:
   #   - nginx-ingress
   #   - oauth2-proxy
-
+  #   daemonsets: []
+  
 scaleDownUp: []
   # - name: deployments-to-scaledownup
   #   schedule: "7 */3 * * *"
