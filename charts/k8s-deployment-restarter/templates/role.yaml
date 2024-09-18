@@ -16,12 +16,18 @@ rules:
     resources:
       - deployments
       - deployments/scale
+      - daemonsets      
     resourceNames:
     {{- range .Values.restart }}
      {{- range .deployments }}
     - {{ . }}
      {{- end }}
     {{- end }}
+    {{- range .Values.restart }}
+     {{- range .daemonsets }}
+    - {{ . }}
+     {{- end }}
+    {{- end }}    
     {{- range .Values.scaleDownUp }}
      {{- range .deployments }}
     - {{ .name }}

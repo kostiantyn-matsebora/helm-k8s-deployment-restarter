@@ -12,5 +12,8 @@ data:
 {{- range .deployments }}
     kubectl rollout restart deployment {{ . }} 
 {{- end }}
+{{- range .daemonsets }}
+    kubectl rollout restart daemonset {{ . }} 
+{{- end }}
 {{- end }}
 {{- end }}
