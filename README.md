@@ -30,3 +30,29 @@ scaleDownUp:
       replicas: 2
     
 ```
+
+## Usage
+
+Add helm [repository](https://kostiantyn-matsebora.github.io/helm-charts/) first:
+
+```bash
+helm repo add kostiantyn-matsebora https://kostiantyn-matsebora.github.io/helm-charts/
+```
+
+Install/upgrade helm chart using your custom values:
+
+```bash
+helm upgrade oauth2-proxy kostiantyn-matsebora/k8-deployment-restarter --install --values ./custom-values.yaml
+
+```
+
+## Contributing
+
+If you experience any issues, have a question or a suggestion, or if you wish
+to contribute, feel free to [open an issue][issues] or
+[start a discussion][discussions].
+
+[issues]: https://github.com/kostiantyn-matsebora/k8s-deployment-restarter/issues
+[discussions]: https://github.com/k8s-deployment-restarter/discussions
+
+## License
