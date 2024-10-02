@@ -52,7 +52,7 @@ If you experience any issues, have a question or a suggestion, or if you wish
 to contribute, feel free to [open an issue][issues] or
 [start a discussion][discussions].
 
-[issues]: https://github.com/kostiantyn-matsebora/k8s-deployment-restarter/issues
-[discussions]: https://github.com/k8s-deployment-restarter/discussions
+[issues]: https://github.com/kostiantyn-matsebora/helm-k8s-deployment-restarter/issues
+[discussions]: https://github.com/helm-k8s-deployment-restarter/discussions
 
 ## License
