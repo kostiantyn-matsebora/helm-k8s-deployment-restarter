@@ -20,6 +20,8 @@ jobs:
       - uses: actions/checkout@v2
       - name: Copy README.md to chart        
         run: cp README.md charts/*/
+      - name: Copy LICENSE to chart        
+        run: cp LICENSE charts/*/              
       - name: Publish Helm chart
         if: github.ref == 'refs/heads/master'
         uses: stefanprodan/helm-gh-pages@master        
