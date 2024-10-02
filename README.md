@@ -1,5 +1,7 @@
 # k8s deployment restarter
 
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=kostiantyn-matsebora_helm-k8s-deployment-restarter&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=kostiantyn-matsebora_helm-k8s-deployment-restarter)
+
 Helm chart for restarting kubernetes deployment resource by schedule.
 
 Supports two strategies:
